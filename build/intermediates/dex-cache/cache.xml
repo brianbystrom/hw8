@@ -2,6 +2,24 @@
 <items version="2" >
 
     <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.2.1_8438d3b39783ea21a4e5e02a522e4ce38b9e9cb3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.1_bbc82b34d0223069a3ac3b44d50091de52b7e2c5/classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.1/jars/classes.jar"
         jumboMode="false"
@@ -9,33 +27,6 @@
         revision="25.0.2"
         sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
         <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-10.2.1_132520ee0b9c124f89d412b3f31403333402b906.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.1_9c1b476f15f8f99aa0944b33060f087703119f7f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.2.1_132520ee0b9c124f89d412b3f31403333402b906/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.1_e3b60bb8e12bf8b423f07b85c296106a43980d43.jar" />
     </item>
     <item
         is-multidex="true"
@@ -56,15 +47,6 @@
         <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.1_9c1b476f15f8f99aa0944b33060f087703119f7f.jar" />
     </item>
     <item
-        is-multidex="false"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.1_51709683a8d29730f8145bc25e9568364ddd78cb.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="/Users/brianbystrom/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
         jumboMode="true"
@@ -83,15 +65,6 @@
         <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.1_51709683a8d29730f8145bc25e9568364ddd78cb/classes.dex" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="888983f51cf34f57a93ff16832552f2f15937212">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.2.1_0241475ffa1027f3306708c7d390a2eaecb41b90/classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.1/jars/classes.jar"
         jumboMode="false"
@@ -101,13 +74,13 @@
         <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-impl-10.2.1_0241475ffa1027f3306708c7d390a2eaecb41b90.jar" />
     </item>
     <item
-        is-multidex="false"
-        jar="/Users/brianbystrom/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.1_bae8e0c82e7fe63c695e0a6aa1fe08acf53c236d.jar" />
+        sha1="9458af3576bdf8de727a2cb5ae331a8137eedac1">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_79a7bda4fd90faaad2a22bf27f56fc4aa1832873/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -119,42 +92,6 @@
         <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-connection-10.2.1_6f515fcf52933123cf8cb86ee8fd5e625c2f132c.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/brianbystrom/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_b2b71ae090c0cd05923ba4e044e917c4048f9423/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f767195b99c32839be14c79c2fa1a77751670ac3">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_038f3316abd8ce84a9d18a24c2fc458dd89e22ac/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.2.1_a96fa1e2b1b135cd978cff99c5bb73375502c100/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.1_d5f182c67e642e2eabff678086730f8992a35915/classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
         jumboMode="false"
@@ -162,24 +99,6 @@
         revision="25.0.2"
         sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
         <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.1.1_d5f182c67e642e2eabff678086730f8992a35915.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.2.1_6f515fcf52933123cf8cb86ee8fd5e625c2f132c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.1_6a07b04c59de996516f1ff17e27dd2fdac909f35/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -201,6 +120,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.1_cd37fc2f77ad15fbb6f0acc69b088027a30dc883/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -218,15 +146,6 @@
         <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.1.1_ae126497d06ec1587eb2892b7ea34cabc6b64049.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.1_c657cc2675f362c41ca23cbc48dbde38431896f3/classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
         jumboMode="false"
@@ -236,15 +155,6 @@
         <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.1.1_c657cc2675f362c41ca23cbc48dbde38431896f3.jar" />
     </item>
     <item
-        is-multidex="false"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.1_7139b37dbbc6294aca11f730ff4469ed767f0f38.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
         jumboMode="true"
@@ -252,33 +162,6 @@
         revision="25.0.2"
         sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
         <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.1_7139b37dbbc6294aca11f730ff4469ed767f0f38/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-10.2.1_dca6084dfa15b1992b45934029683d06c4ca7c2a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-10.2.1_beaa2826ea1bd668fb0ca8e7c6a7d692692cfa86.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.1_ae126497d06ec1587eb2892b7ea34cabc6b64049/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -309,6 +192,285 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.1_056a2346ceb506c3765f58476ebb7cf26acacf84/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.2.1_cfc794f742e576ac44941a27f1914888dc20a66a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.2.1_2a912bd0a893f9e90e7014b64e6a2f48afb384f9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.1_9c1b476f15f8f99aa0944b33060f087703119f7f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.2.1_132520ee0b9c124f89d412b3f31403333402b906/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.2.1_404c9dc1c08ad10a252733ecce771e6a2119207a/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.1_e3b60bb8e12bf8b423f07b85c296106a43980d43.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.1_51709683a8d29730f8145bc25e9568364ddd78cb.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.2.1_16f109dae36941c0fbe4c979a68b4362ec783386/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="888983f51cf34f57a93ff16832552f2f15937212">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.2.1_0241475ffa1027f3306708c7d390a2eaecb41b90/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brianbystrom/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.1_bae8e0c82e7fe63c695e0a6aa1fe08acf53c236d.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="888983f51cf34f57a93ff16832552f2f15937212">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.2.1_2dcfde4ecba595d70f629946a9eec4d32135d8cb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.1_8280d2350a119f4d4c1b7589cdce695d73032393/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_b2b71ae090c0cd05923ba4e044e917c4048f9423/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f767195b99c32839be14c79c2fa1a77751670ac3">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_038f3316abd8ce84a9d18a24c2fc458dd89e22ac/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.1_e77671e5978473ab667e4a8e96a29e225e00efaf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.1_5276b15ce36bfc810e14a29ecf101f436e6c80ec/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.2.1_a96fa1e2b1b135cd978cff99c5bb73375502c100/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.1_d5f182c67e642e2eabff678086730f8992a35915/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.1_24fafb5b0e33a24478d302b96b38f78f4e88e333/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.2.1_6f515fcf52933123cf8cb86ee8fd5e625c2f132c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.1_6a07b04c59de996516f1ff17e27dd2fdac909f35/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.1_508d6a456640056805efaa4d1a65afff7dd1efb6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.1_c657cc2675f362c41ca23cbc48dbde38431896f3/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.1_7139b37dbbc6294aca11f730ff4469ed767f0f38.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.2.1_b007662bdce03c3f0324964951ab1ef87e7fd62a/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-10.2.1_dca6084dfa15b1992b45934029683d06c4ca7c2a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-database-10.2.1_beaa2826ea1bd668fb0ca8e7c6a7d692692cfa86.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.1_ae126497d06ec1587eb2892b7ea34cabc6b64049/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.2.1_ae8e52a0be0335cb2940844188066217c539b0a8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.2.1_968ec9e73483da72728ebe9876c64f80afc377af/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -324,6 +486,15 @@
         revision="25.0.2"
         sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
         <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.2.1_2a912bd0a893f9e90e7014b64e6a2f48afb384f9.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.1_13fbdca4758fc771a1c774e2b3675e06c9d1c231/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -345,12 +516,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.1/jars/classes.jar"
+        jar="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
-        <dex dex="/Users/brianbystrom/Desktop/HW8/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.2.1_2a912bd0a893f9e90e7014b64e6a2f48afb384f9/classes.dex" />
+        sha1="2cd54e185fb09804007c0b0cf6da164ad99e08a8">
+        <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7c6888b3e030e6f1e327d179986fd7b90477142d/classes.dex" />
     </item>
 
 </items>
