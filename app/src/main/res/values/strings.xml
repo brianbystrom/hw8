@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HW8</string>
+    <string name="setCityBTN">Set Current City</string>
+    <string name="searchCityBTN">Search City</string>
+</resources>
