@@ -2,6 +2,7 @@ package com.example.brianbystrom.hw8;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -32,11 +33,14 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
     private DatabaseReference mDatabase;
     public static final String MyPREFERENCES = "MyPrefs" ;
     Button setCityBTN;
+    Button searchCityBtn;
     TextView currentCityTV, cityCountryTV, currentWeatherTV, temperatureTV, updatedTV;
+    EditText cname;
+    EditText ctryname;
     ImageView currentWeatherIV;
     ProgressBar currentCityPB;
     SharedPreferences sharedpreferences;
-
+    long numOfElementsInFireBase;
 
 
     @Override
@@ -48,13 +52,39 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
         setCityBTN = (Button) findViewById(R.id.setCityBTN);
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+        searchCityBtn = (Button) findViewById(R.id.searchCityBTN);
+         mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference myRef = mDatabase;
 
         String cityString;
         cityString = sharedpreferences.getString("CURRENT CITY", "");
+        cname = (EditText) findViewById(R.id.cityNameET);
+        ctryname = (EditText) findViewById(R.id.countryNameET);
 
+        searchCityBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),CityWeather.class);
+                i.putExtra("CNAME",cname.getText().toString());
+                i.putExtra("CTRYNAME",cname.getText().toString());
+                startActivity(i);
+            }
+        });
+
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                numOfElementsInFireBase = dataSnapshot.child("history").getChildrenCount();
+                Log.d("chill",numOfElementsInFireBase+"");
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+
+        myRef.addValueEventListener(eventListener);
 
         //If shared preferences for set city exists load up details via async task
         //If not then jsut leave set city BTN available
@@ -179,6 +209,9 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
         if(s.size() > 0) {
             Log.d("WEATHER", s.get(0).getTime() + " | " + s.get(0).getIcon() + " | " + s.get(0).getTempF());
             showCurrentWeather(s.get(0));
+
+            //Write to firebase
+            mDatabase.child("history").child(0+"").setValue(s.get(0));
 
         } else {
             Log.d("WEATHER","NO CITY FOUND");

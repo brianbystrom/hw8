@@ -41,14 +41,6 @@
         android:id="@+id/countryNameET"
         android:hint="Country Name (i.e. US)" />
 
-    <Button
-        android:text="@string/searchCityBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/countryNameET"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/searchCityBTN" />
-
     <TextView
         android:text="There are no cities to display."
         android:layout_width="wrap_content"
@@ -135,4 +127,34 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/currentCityPB"
         android:visibility="gone" />
+
+    <Button
+        android:text="@string/searchCityBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchCityBTN"
+        android:layout_below="@+id/countryNameET"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:text="Saved Cities"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/list"/>
+    </LinearLayout>
 </RelativeLayout>

@@ -12,7 +12,15 @@ package com.example.brianbystrom.hw8;
 
 public class Weather {
 
-    String time, text, icon, tempC, tempF;
+    String time, text, icon, tempC, tempF, citycountry;
+
+    public String getCitycountry() {
+        return citycountry;
+    }
+
+    public void setCitycountry(String citycountry) {
+        this.citycountry = citycountry;
+    }
 
     public String getTime() {
         return time;

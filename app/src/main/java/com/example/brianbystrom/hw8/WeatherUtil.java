@@ -1,5 +1,8 @@
 package com.example.brianbystrom.hw8;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,6 +19,9 @@ import java.util.ArrayList;
 public class WeatherUtil {
 
     static public class DataJSONParser {
+
+        //SharedPreferences prefs = this.getSharedPreferences(
+               // "com.example.brianbystrom.hw8", Context.MODE_PRIVATE);
         static ArrayList<Weather> parseData(String in) {
             ArrayList<Weather> weatherList = new ArrayList();
 
@@ -39,7 +45,7 @@ public class WeatherUtil {
                     weather.setTempC(cJSONObject.getString("Value"));
                     weather.setTempF(fJSONObject.getString("Value"));
 
-
+                    weather.setCitycountry("Charlotte, NC");
                     weatherList.add(weather);
                 }
             } catch (JSONException e) {
