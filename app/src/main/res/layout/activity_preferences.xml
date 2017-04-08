@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@android:color/black"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_tempunit"
+        android:text="Temperature Unit"
+        android:textColor="@android:color/white"
+        android:background="@android:color/background_dark" />
+
+    <Button
+        android:text="Change Current City"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:id="@+id/btn_current_city"
+        android:background="@android:color/background_dark" />
+</LinearLayout>

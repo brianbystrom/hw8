@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "661876996488",
+    "firebase_url": "https://hw08-e8205.firebaseio.com",
+    "project_id": "hw08-e8205",
+    "storage_bucket": "hw08-e8205.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661876996488:android:a96640af7a949066",
+        "android_client_info": {
+          "package_name": "com.example.brianbystrom.hw8"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "661876996488-8ipa70aftndr2huvhs57mnu96h8fikig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAerrT2f4vaxkAjF7UScLdKF_6zhy0djFQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
