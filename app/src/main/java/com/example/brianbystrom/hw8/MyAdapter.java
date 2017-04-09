@@ -28,9 +28,9 @@ import java.util.ArrayList;
  */
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private ArrayList<City> mDataset;
+    private ArrayList<Weather> mDataset;
     private Context mContext;
-    private City clickedRadio;
+    private Weather clickedRadio;
     //public static PlayPodcastAsync aTask;
 
     int counter = 0;
@@ -42,19 +42,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public LinearLayout mLinearLayout;
         public TextView tv_citycountry, tv_lastupdate, tv_temp;
         public ImageButton mPodcastIb;
-        public ImageView mPodcastIv;
+        public ImageView fav;
         public ViewHolder(View v) {
             super(v);
             tv_citycountry = (TextView) v.findViewById(R.id.tv_citycountry);
             tv_lastupdate = (TextView) v.findViewById(R.id.tv_lastupdate);
             tv_temp = (TextView) v.findViewById(R.id.tv_temp);
-
+            fav = (ImageView) v.findViewById(R.id.tv_fav);
 
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(ArrayList<City> myDataset, Context context) {
+    public MyAdapter(ArrayList<Weather> myDataset, Context context) {
         mDataset = myDataset;
         mContext = context;
     }
@@ -115,13 +115,23 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         //TextView tv = (TextView) holder.mLinearLayout.findViewById(R.id.podcast_tv);
-        holder.tv_citycountry.setText(mDataset.get(position).getName());
+        holder.tv_citycountry.setText(mDataset.get(position).getCity()+","+mDataset.get(position).getCountry());
 
         //Log.d("POOP",mDataset.get(position).getPublished_date().substring(5,7));
         //int day = Integer.parseInt(mDataset.get(position).getPublished_date().substring(5,7));
         //int month = convertMonthToNumber(mDataset.get(position).getPublished_date().substring(8,11));
         //int year = Integer.parseInt(mDataset.get(position).getPublished_date().substring(12,16));
         holder.tv_temp.setText(mDataset.get(position).getTempF() + " F");
+
+        holder.tv_lastupdate.setText(mDataset.get(position).getTime());
+
+        if(mDataset.get(position).isFav()){
+            holder.fav.setImageResource(R.mipmap.star_gold);
+        }
+        else
+        {
+            holder.fav.setImageResource(R.mipmap.star_gray);
+        }
 
 
 
@@ -132,7 +142,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mDataset.size();
     }
 
 }

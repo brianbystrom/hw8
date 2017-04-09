@@ -45,7 +45,8 @@ public class WeatherUtil {
                     weather.setTempC(cJSONObject.getString("Value"));
                     weather.setTempF(fJSONObject.getString("Value"));
 
-                    weather.setCitycountry("Charlotte, NC");
+                    weather.setCity("Charlotte");
+                    weather.setCountry("US");
                     weatherList.add(weather);
                 }
             } catch (JSONException e) {

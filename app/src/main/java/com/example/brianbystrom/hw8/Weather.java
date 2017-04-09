@@ -12,14 +12,40 @@ package com.example.brianbystrom.hw8;
 
 public class Weather {
 
-    String time, text, icon, tempC, tempF, citycountry;
+    String time, text, icon, tempC, tempF, city, country;
+    boolean isFav;
+    long positionInFirebase;
 
-    public String getCitycountry() {
-        return citycountry;
+    public long getPositionInFirebase() {
+        return positionInFirebase;
     }
 
-    public void setCitycountry(String citycountry) {
-        this.citycountry = citycountry;
+    public void setPositionInFirebase(long positionInFirebase) {
+        this.positionInFirebase = positionInFirebase;
+    }
+
+    public boolean isFav() {
+        return isFav;
+    }
+
+    public void setFav(boolean fav) {
+        isFav = fav;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getTime() {

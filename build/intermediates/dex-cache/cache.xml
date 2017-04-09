@@ -52,7 +52,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="36569d3bf838a6e190740d2ca8658d780e9f6cb3">
+        sha1="6ee5e416afe55521985f1e2461f5e3eb641710f8">
         <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_79a7bda4fd90faaad2a22bf27f56fc4aa1832873/classes.dex" />
     </item>
     <item
@@ -196,7 +196,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d1c4209854a5042dda939d5a4b56ea0423f86ae7">
+        sha1="0b5d540d0649b79b800308a2c014dfa581c321a2">
         <dex dex="/Users/brianbystrom/Desktop/ITIS 4180/HW08/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_7c6888b3e030e6f1e327d179986fd7b90477142d/classes.dex" />
     </item>
 

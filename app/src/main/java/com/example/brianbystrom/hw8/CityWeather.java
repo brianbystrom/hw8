@@ -5,10 +5,13 @@ import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,7 +34,7 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
     // http://dataservice.accuweather.com/locations/v1/
     //{COUNTRY_CODE}/search?apikey={YOUR_API_KEY}&q={CITY_NAME}
     private DatabaseReference mDatabase;
-
+    DatabaseReference myRef;
     TextView headLineTxt;
     TextView forcastTxt;
     TextView tvDayWeather;
@@ -41,6 +44,10 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
     TextView cityWeatherHeaderTV;
     String cityKey, cityName, countryName;
     String tempF, tempC;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
 
     SharedPreferences sharedpreferences;
 
@@ -50,6 +57,9 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_weather);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("city");
+        myRef = mDatabase;
 
         cityWeatherHeaderTV = (TextView) findViewById(R.id.cityWeatherHeaderTV);
 
@@ -78,6 +88,9 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
 //Start Location Async
             new GetLocationAsync(CityWeather.this).execute(weatherURL);
         }
+
+
+        //
 
 
 
@@ -123,10 +136,10 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
     public void setupDataB(final ArrayList<Location> s) {
 
         if (s.size() > 0) {
-
+           // Log.d("Location",s.get(0).ge)
             Location l = s.get(0);
             Log.d("LALA",l.getKey()+"dddd");
-            String weatherURL = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/349818?apikey=3YYKlzAABBBldQ6AGOcj9jSin5WLAycH&q";
+            String weatherURL = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/"+l.getKey()+"?apikey=3YYKlzAABBBldQ6AGOcj9jSin5WLAycH&q";
             new FiveDayForcastAsync(CityWeather.this).execute(weatherURL);
 
         }
@@ -161,72 +174,79 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
         }
     }
 
+    public void writeToFirebase(ArrayList<FiveDay> s){
+        long sizeOfDB = getIntent().getExtras().getLong("DBSIZE");
+        Weather w = new Weather();
+        w.setCity(getIntent().getExtras().getString("CNAME"));
+        w.setCountry(getIntent().getExtras().getString("CTRYNAME"));
+        w.setFav(false);
+        w.setTime(s.get(0).getDate());
+        w.setTempF(s.get(0).getMax());
+        w.setPositionInFirebase(sizeOfDB);
+        myRef.child(sizeOfDB+"").setValue(w);
+    }
+
+    public void setupCurrentDay(ArrayList<FiveDay> s){
+        FiveDay f = s.get(0);
+        f.setCity(getIntent().getExtras().getString("CNAME"));
+        f.setCountry(getIntent().getExtras().getString("CTRYNAME"));
+        headLineTxt.setText(f.getHeadline());
+        forcastTxt.setText("Temperature: "+f.getMax()+"/"+f.getMin());
+        tvDayWeather.setText(f.getDayForcast());
+        tvNightWeather.setText(f.getNightForcast());
+        String dayIcon, nightIcon;
+        if(f.getIconDay() < 10) {
+            dayIcon = "0" + f.getIconDay();
+        } else {
+            dayIcon = f.getIconDay() + "";
+        }
+
+        if(f.getIconNight() < 10) {
+            nightIcon = "0" + f.getIconNight();
+        } else {
+            nightIcon = f.getIconNight() + "";
+        }
+        Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+dayIcon+"-s.png").into(dayIV);
+        Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+nightIcon+"-s.png").into(nightIV);
+
+
+        Log.d("DEMO", f.getIconNight() + "");
+    }
+
     public void setupDataC(final ArrayList<FiveDay> s) {
 
+        String day1Icon = "";
+        String day2Icon = "";
+        String day3Icon = "";
+
         if (s.size() > 0) {
+            writeToFirebase(s);
+            setupCurrentDay(s);
 
-            Log.d("SIZE", s.size() + "");
+            mRecyclerView = (RecyclerView) findViewById(R.id.fiveday_list);
+            // use this setting to improve performance if you know that changes
+            // in content do not change the layout size of the RecyclerView
+            mRecyclerView.setHasFixedSize(true);
 
-            FiveDay f = s.get(0);
-            FiveDay d1 = s.get(1);
-            FiveDay d2 = s.get(2);
-            FiveDay d3 = s.get(3);
-            headLineTxt.setText(f.getHeadline());
-            forcastTxt.setText("Temperature: "+f.getMax()+"/"+f.getMin());
-            tvDayWeather.setText(f.getDayForcast());
-            tvNightWeather.setText(f.getNightForcast());
-            day1TV.setText(d1.getDate().toString());
-            day2TV.setText(d2.getDate().toString());
-            day3TV.setText(d3.getDate().toString());
+            // use a linear layout manager
+            mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            mRecyclerView.setLayoutManager(mLayoutManager);
+            Log.d("date of the second val",s.get(8).getDate());
+            mAdapter = new MyFiveDayAdapter(s,this);
+            mRecyclerView.setAdapter(mAdapter);
+            mAdapter.notifyDataSetChanged();
 
+//            FiveDay d1 = s.get(1);
+//            FiveDay d2 = s.get(2);
+//            FiveDay d3 = s.get(3);
+//
+//            day1TV.setText(d1.getDate().toString());
+//            day2TV.setText(d2.getDate().toString());
+//            day3TV.setText(d3.getDate().toString());
+//            Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+day1Icon+"-s.png").into(day1IV);
+//            Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+day2Icon+"-s.png").into(day2IV);
+//            Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+day3Icon+"-s.png").into(day3IV);
 
-            String dayIcon, nightIcon, day1Icon, day2Icon, day3Icon;
-
-            if(f.getIconDay() < 10) {
-                dayIcon = "0" + f.getIconDay();
-            } else {
-                dayIcon = f.getIconDay() + "";
-            }
-
-            if(f.getIconNight() < 10) {
-                nightIcon = "0" + f.getIconNight();
-            } else {
-                nightIcon = f.getIconNight() + "";
-            }
-
-            if(d1.getIconDay() < 10) {
-                day1Icon = "0" + d1.getIconDay();
-            } else {
-                day1Icon = d1.getIconDay() + "";
-            }
-
-            if(d2.getIconDay() < 10) {
-                day2Icon = "0" + d2.getIconDay();
-            } else {
-                day2Icon = d2.getIconDay() + "";
-            }
-
-            if(d3.getIconDay() < 10) {
-                day3Icon = "0" + d3.getIconDay();
-            } else {
-                day3Icon = d3.getIconDay() + "";
-            }
-
-
-
-
-
-            Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+dayIcon+"-s.png").into(dayIV);
-            Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+nightIcon+"-s.png").into(nightIV);
-            Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+day1Icon+"-s.png").into(day1IV);
-            Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+day2Icon+"-s.png").into(day2IV);
-            Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+day3Icon+"-s.png").into(day3IV);
-
-
-            Log.d("DEMO", f.getIconNight() + "");
-
-
-            //Log.d("LALA",l.getKey()+"dddd");
 
         }
     }

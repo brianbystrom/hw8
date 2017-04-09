@@ -94,7 +94,8 @@
         android:layout_below="@+id/day1IV"
         android:layout_alignLeft="@+id/day1IV"
         android:layout_alignStart="@+id/day1IV"
-        android:id="@+id/day1TV" />
+        android:id="@+id/day1TV"
+        android:visibility="gone" />
 
     <TextView
         android:text="TextView"
@@ -102,7 +103,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/day2IV"
         android:layout_centerHorizontal="true"
-        android:id="@+id/day2TV" />
+        android:id="@+id/day2TV"
+        android:visibility="gone" />
 
     <TextView
         android:text="TextView"
@@ -111,15 +113,8 @@
         android:layout_alignBottom="@+id/day2TV"
         android:layout_alignRight="@+id/day3IV"
         android:layout_alignEnd="@+id/day3IV"
-        android:id="@+id/day3TV" />
-
-    <ImageView
-        app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/day2IV"
-        android:layout_alignTop="@+id/day1IV"
-        android:layout_centerHorizontal="true"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:id="@+id/day3TV"
+        android:visibility="gone" />
 
     <ImageView
         app:srcCompat="@mipmap/ic_launcher"
@@ -128,7 +123,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="100dp"
+        android:visibility="gone" />
 
     <ImageView
         android:layout_width="100dp"
@@ -148,16 +144,6 @@
         android:layout_toRightOf="@+id/day1TV"
         android:layout_toEndOf="@+id/day1TV" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/moreDetailsTV"
-        tools:text="Click here for more details."
-        android:layout_below="@+id/tv_day"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp" />
-
     <ImageView
         app:srcCompat="@mipmap/ic_launcher"
         android:id="@+id/day1IV"
@@ -166,7 +152,8 @@
         android:layout_height="100dp"
         android:layout_below="@+id/moreDetailsTV"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:visibility="gone" />
 
     <TextView
         android:text="Headline"
@@ -186,4 +173,33 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/cityWeatherHeaderTV" />
+
+    <ImageView
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/day2IV"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/day1IV"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        android:id="@+id/fiveday_list"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/moreDetailsTV"
+        tools:text="Click here for more details."
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/tv_night"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
