@@ -12,7 +12,34 @@ package com.example.brianbystrom.hw8;
 
 public class City {
 
-    String key, name, country;
+    String key, name, country, tempF, tempC;
+    Long updated;
+
+
+
+    public Long getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Long updated) {
+        this.updated = updated;
+    }
+
+    public String getTempC() {
+        return tempC;
+    }
+
+    public void setTempC(String tempC) {
+        this.tempC = tempC;
+    }
+
+    public String getTempF() {
+        return tempF;
+    }
+
+    public void setTempF(String tempF) {
+        this.tempF = tempF;
+    }
 
     public String getName() {
         return name;
@@ -38,7 +65,5 @@ public class City {
         this.key = key;
     }
 
-    public City() {
 
-    }
 }

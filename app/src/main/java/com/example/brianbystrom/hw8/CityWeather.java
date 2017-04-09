@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * Created by msalad on 4/8/2017.
  */
 
-public class CityWeather extends AppCompatActivity implements GetLocationAsync.IDataCity, FiveDayForcastAsync.IDataFiveDay{
+public class CityWeather extends AppCompatActivity implements GetLocationAsync.IDataCity, FiveDayForcastAsync.IDataFiveDay, GetCurrentWeatherAsync.IData{
 
     // http://dataservice.accuweather.com/locations/v1/
     //{COUNTRY_CODE}/search?apikey={YOUR_API_KEY}&q={CITY_NAME}
@@ -40,6 +40,7 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
     TextView day1TV, day2TV, day3TV;
     TextView cityWeatherHeaderTV;
     String cityKey, cityName, countryName;
+    String tempF, tempC;
 
     SharedPreferences sharedpreferences;
 
@@ -97,14 +98,9 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.saveMI:
-                Log.d("REFRESH", "CLICKED");
-                mDatabase = FirebaseDatabase.getInstance().getReference();
-                DatabaseReference myRef = mDatabase;
-                City c = new City();
-                c.setKey(cityKey);
-                c.setName(cityName);
-                c.setCountry(countryName);
-                myRef.child("history").child(c.getKey()).setValue(c);
+                String weatherURL = "http://dataservice.accuweather.com/currentconditions/v1/"+cityKey+"?apikey=3YYKlzAABBBldQ6AGOcj9jSin5WLAycH&q";
+                Log.d("URL", weatherURL);
+                new GetCurrentWeatherAsync(CityWeather.this).execute(weatherURL);
                 return true;
             case R.id.setCurrentMI:
                 sharedpreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -133,6 +129,35 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
             String weatherURL = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/349818?apikey=3YYKlzAABBBldQ6AGOcj9jSin5WLAycH&q";
             new FiveDayForcastAsync(CityWeather.this).execute(weatherURL);
 
+        }
+    }
+
+    public void currentWeather(final ArrayList<Weather> s) {
+
+        if(s.size() > 0) {
+            Log.d("WEATHER", s.get(0).getTime() + " | " + s.get(0).getIcon() + " | " + s.get(0).getTempF());
+
+            Log.d("REFRESH", "CLICKED");
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference myRef = mDatabase;
+            String key = mDatabase.child("city").push().getKey();
+            City c = new City();
+            c.setKey(cityKey);
+            c.setName(cityName);
+            c.setCountry(countryName);
+            c.setTempC(s.get(0).getTempC());
+            c.setTempF(s.get(0).getTempF());
+            c.setUpdated(System.currentTimeMillis());
+            myRef.child("city").child(key).setValue(c);
+
+            //showCurrentWeather(s.get(0));
+
+            //Write to firebase
+            //mDatabase.child("history").child(0+"").setValue(s.get(0));
+
+        } else {
+            //Log.d("WEATHER","NO CITY FOUND");
+            //Toast.makeText(this, "No city found.", Toast.LENGTH_SHORT).show();
         }
     }
 

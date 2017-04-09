@@ -5,8 +5,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +28,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static android.view.View.GONE;
 
@@ -41,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
     ProgressBar currentCityPB;
     SharedPreferences sharedpreferences;
     long numOfElementsInFireBase;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    ArrayList<City> savedCities;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -75,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
 
         setCityBTN = (Button) findViewById(R.id.setCityBTN);
         searchCityBtn = (Button) findViewById(R.id.searchCityBTN);
-         mDatabase = FirebaseDatabase.getInstance().getReference();
+         mDatabase = FirebaseDatabase.getInstance().getReference().child("city");
         DatabaseReference myRef = mDatabase;
 
         String cityString;
@@ -94,20 +104,39 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
             }
         });
 
-        ValueEventListener eventListener = new ValueEventListener() {
+        /* This is what the Firebase db entry looks like after a city is saved
+            hw08-b868caddclose
+                 city
+                    -KhHxo-I-hgxu9Uyoc0I
+                         country:
+                            "US"
+                         key:
+                            "349818"
+                         name:
+                            "Charlotte"
+                         tempC: 
+                            "11.1"
+                         tempF:
+                            "52.0"
+                         updated:
+                            1491745587274
+         */
+
+        ValueEventListener cityListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                numOfElementsInFireBase = dataSnapshot.child("history").getChildrenCount();
-                Log.d("chill",numOfElementsInFireBase+"");
+                City city = dataSnapshot.getValue(City.class);
+                Log.d("NAME", city.name + "");
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                // Getting Post failed, log a message
+                //Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
             }
         };
-
-        myRef.addValueEventListener(eventListener);
+        myRef.addValueEventListener(cityListener);
 
         //If shared preferences for set city exists load up details via async task
         //If not then jsut leave set city BTN available
@@ -197,6 +226,25 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
 
     }
 
+    private void collectPhoneNumbers(Map<String,Object> users) {
+
+        ArrayList<City> cityList = new ArrayList<>();
+
+        //iterate through each user, ignoring their UID
+        for (Map.Entry<String, Object> entry : users.entrySet()){
+
+            //Get user map
+            Map city = (Map) entry.getValue();
+            //Get phone field and append to list
+            City newCity = new City();
+            //newCity.setName((String) city.get("name"));
+            Log.d("CITYNAME", (String) city.get("name"));
+            //cityList.add((City) singleUser.get("n"));
+        }
+
+        //System.out.println(phoneNumbers.toString());
+    }
+
     public void setupDataS (final ArrayList<City> s) {
 
         if(s.size() > 0) {
@@ -247,8 +295,7 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
             Log.d("WEATHER", s.get(0).getTime() + " | " + s.get(0).getIcon() + " | " + s.get(0).getTempF());
             showCurrentWeather(s.get(0));
 
-            //Write to firebase
-            mDatabase.child("history").child(0+"").setValue(s.get(0));
+            //Write to firebas
 
         } else {
             Log.d("WEATHER","NO CITY FOUND");
