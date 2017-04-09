@@ -1,5 +1,8 @@
 package com.example.brianbystrom.hw8;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by msalad on 4/8/2017.
  */
@@ -13,6 +16,15 @@ public class FiveDay {
     String day;
     int iconDay;
     int iconNight;
+    String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public int getIconDay() {
         return iconDay;

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 import static android.view.View.GONE;
 
-public class MainActivity extends AppCompatActivity implements GetCityAsync.IData, GetCurrentWeatherAsync.IData{
+public class MainActivity extends AppCompatActivity implements GetCityAsync.IData, GetCurrentWeatherAsync.IData, GetCitySearchAsync.IData{
 
     private DatabaseReference mDatabase;
     public static final String MyPREFERENCES = "MyPrefs" ;
@@ -41,6 +41,28 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
     ProgressBar currentCityPB;
     SharedPreferences sharedpreferences;
     long numOfElementsInFireBase;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 100) {
+            if (resultCode == RESULT_OK) {
+                //Movie new_movie = (Movie) data.getExtras().getParcelable(MOVIE_KEY);
+                //movies.add(new_movie);
+                //Toast.makeText(MainActivity.this, "Added " + new_movie.name + ".", Toast.LENGTH_SHORT).show();
+            } else {
+                //Toast.makeText(MainActivity.this, "Movie was not added.", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == 200) {
+            if(resultCode == RESULT_OK) {
+                //Movie edited_movie = (Movie) data.getExtras().getParcelable(MOVIE_KEY);
+                //String original_name = (String) data.getExtras().getString(ORIGINAL_NAME_KEY);
+                //updateMovie(movies, edited_movie, original_name);
+                //Toast.makeText(MainActivity.this, "Edited " + edited_movie.name + ".", Toast.LENGTH_SHORT).show();
+            } else {
+                //Toast.makeText(MainActivity.this, "Unable to edit movie.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
 
     @Override
@@ -64,10 +86,11 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
         searchCityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),CityWeather.class);
-                i.putExtra("CNAME",cname.getText().toString());
-                i.putExtra("CTRYNAME",cname.getText().toString());
-                startActivity(i);
+
+                String cityURL = "http://dataservice.accuweather.com/locations/v1/"+ctryname.getText()+"/search?apikey=3YYKlzAABBBldQ6AGOcj9jSin5WLAycH&q="+cname.getText();
+                new GetCitySearchAsync(MainActivity.this).execute(cityURL);
+
+
             }
         });
 
@@ -174,6 +197,20 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
 
     }
 
+    public void setupDataS (final ArrayList<City> s) {
+
+        if(s.size() > 0) {
+            Intent i = new Intent(getApplicationContext(),CityWeather.class);
+            i.putExtra("CTRYNAME",s.get(0).getCountry());
+            i.putExtra("CNAME",s.get(0).getName());
+            i.putExtra("KEY", s.get(0).getKey());
+            startActivityForResult(i, 100);
+        } else {
+            Toast.makeText(this, "No city found.", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
     //After city data comes back, sets it to Shared preferences
     public void setupData(final ArrayList<City> s) {
 
@@ -246,7 +283,15 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
         currentWeatherTV.setText(weather.getText());
         updatedTV.setText(weather.getTime());
 
-        Picasso.with(MainActivity.this).load("http://developer.accuweather.com/sites/default/files/0"+weather.getIcon()+"-s.png").into(currentWeatherIV);
+        String icon;
+
+        if(Integer.parseInt(weather.getIcon()) < 10) {
+            icon = "0" + weather.getIcon();
+        } else {
+            icon = weather.getIcon() + "";
+        }
+
+        Picasso.with(MainActivity.this).load("http://developer.accuweather.com/sites/default/files/"+icon+"-s.png").into(currentWeatherIV);
 
 
         //TODO:  needs to be dynamic based on preference of metric user chooses in settings
