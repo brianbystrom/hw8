@@ -183,23 +183,31 @@
         android:layout_centerHorizontal="true"
         android:visibility="gone" />
 
+    <TextView
+        android:text="Click here for more details."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/moreDetailsTV"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/tv_night"
+        android:layout_centerHorizontal="true" />
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         android:id="@+id/fiveday_list"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/moreDetailsTV"
+        android:layout_toRightOf="@+id/day1TV"
+        android:layout_toEndOf="@+id/day1TV" />
 
     <TextView
-        android:text="TextView"
+        android:text="Click here for extended details."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/moreDetailsTV"
-        tools:text="Click here for more details."
+        android:id="@+id/moreDetailsTV2"
         android:layout_marginTop="17dp"
-        android:layout_below="@+id/tv_night"
+        android:layout_below="@+id/fiveday_list"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

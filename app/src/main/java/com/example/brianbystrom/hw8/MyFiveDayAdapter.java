@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by msalad on 4/9/2017.
@@ -62,10 +63,21 @@ public class MyFiveDayAdapter extends RecyclerView.Adapter<MyFiveDayAdapter.View
     @Override
     public void onBindViewHolder(MyFiveDayAdapter.ViewHolder holder, int position) {
         //holder.iv_five.setImageResource();
+        String icon;
+        if(mDataset.get(position).getIconDay() < 10) {
+            icon = "0" + mDataset.get(position).getIconDay();
+        } else {
+            icon = mDataset.get(position).getIconDay() + "";
+        }
+
+        Picasso.with(mContext).load("http://developer.accuweather.com/sites/default/files/"+icon+"-s.png").into(holder.iv_five);
+
+
         //Picasso.with(mContext).load("http://developer.accuweather.com/sites/default/files/"+position+"-s.png").into(holder.iv_five);
-        holder.tv_five.setText(mDataset.get(position).getDate());
        // Log.d("dates",(mDataset.get(8).getDate()));
 
+        //String dateTimeAsString = new Date( mDataset.get(position).getDate()).toString();
+        holder.tv_five.setText(mDataset.get(position).getDate());
 
 
 

@@ -34,7 +34,7 @@ public class WeatherUtil {
 
 
                     JSONObject dataJSONObject = root.getJSONObject(i);
-                    weather.setTime(dataJSONObject.getString("LocalObservationDateTime"));
+                    weather.setTime(dataJSONObject.getString("EpochTime"));
                     weather.setText(dataJSONObject.getString("WeatherText"));
                     weather.setIcon(dataJSONObject.getString("WeatherIcon"));
 

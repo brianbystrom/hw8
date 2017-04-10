@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,7 +25,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import org.ocpsoft.prettytime.PrettyTime;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 import static android.view.View.GONE;
@@ -45,30 +50,49 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    ArrayList<Weather> savedCities;
+    ArrayList<City> savedCities;
     DatabaseReference myRef;
     long sizeOfDB;
 
+    private SharedPreferences.OnSharedPreferenceChangeListener prefListener;
+
+
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 100) {
+
+
+
             if (resultCode == RESULT_OK) {
-                //Movie new_movie = (Movie) data.getExtras().getParcelable(MOVIE_KEY);
-                //movies.add(new_movie);
-                //Toast.makeText(MainActivity.this, "Added " + new_movie.name + ".", Toast.LENGTH_SHORT).show();
+                mAdapter.notifyDataSetChanged();
+                String cityString;
+                cityString = sharedpreferences.getString("CURRENT CITY", "");
+                Log.d("CITYSTRINGSP", cityString);
+
+                //If set city already exists fill out ET fields with existing data
+                //This technically shouldn't be used since once a city is set, it will always default to showing
+                //the data of the set city per instructions.
+                if(!cityString.equals("")) {
+                    String[] cityData = cityString.split("\\|");
+                    Log.d("CITYSTRINGSP", cityData[0] + ", " + cityData[1] + ", " + cityData[2]);
+
+                    String cityKey = cityData[0];
+                    String cityName = cityData[1];
+                    String countryName = cityData[2];
+
+                    showProgressBar();
+
+                    String weatherURL = "http://dataservice.accuweather.com/currentconditions/v1/"+cityKey+"?apikey=3YYKlzAABBBldQ6AGOcj9jSin5WLAycH&q";
+                    // Log.d("URL", weatherURL);
+                    Log.d("URL", weatherURL);
+                    new GetCurrentWeatherAsync(MainActivity.this).execute(weatherURL);
+
+                }
             } else {
                 //Toast.makeText(MainActivity.this, "Movie was not added.", Toast.LENGTH_SHORT).show();
             }
-        } else if (requestCode == 200) {
-            if(resultCode == RESULT_OK) {
-                //Movie edited_movie = (Movie) data.getExtras().getParcelable(MOVIE_KEY);
-                //String original_name = (String) data.getExtras().getString(ORIGINAL_NAME_KEY);
-                //updateMovie(movies, edited_movie, original_name);
-                //Toast.makeText(MainActivity.this, "Edited " + edited_movie.name + ".", Toast.LENGTH_SHORT).show();
-            } else {
-                //Toast.makeText(MainActivity.this, "Unable to edit movie.", Toast.LENGTH_SHORT).show();
-            }
-        }
+
     }
 
 
@@ -80,11 +104,37 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
         //Get shared preferences
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
+
+//listener on changed sort order preference:
+
+        prefListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+
+                String cityString;
+                cityString = sharedpreferences.getString("CURRENT CITY", "");
+                String[] cityData = cityString.split("\\|");
+                Log.d("CITYSTRINGSP", cityData[0] + ", " + cityData[1] + ", " + cityData[2]);
+
+                String cityKey = cityData[0];
+                String cityName = cityData[1];
+                String countryName = cityData[2];
+
+                showProgressBar();
+
+                String weatherURL = "http://dataservice.accuweather.com/currentconditions/v1/"+cityKey+"?apikey=3YYKlzAABBBldQ6AGOcj9jSin5WLAycH&q";
+                // Log.d("URL", weatherURL);
+                Log.d("URL", weatherURL);
+                new GetCurrentWeatherAsync(MainActivity.this).execute(weatherURL);
+            }
+
+        };
+        sharedpreferences.registerOnSharedPreferenceChangeListener(prefListener);
+
         setCityBTN = (Button) findViewById(R.id.setCityBTN);
         searchCityBtn = (Button) findViewById(R.id.searchCityBTN);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("city");
         myRef = mDatabase;
-        savedCities = new ArrayList<Weather>();
+        savedCities = new ArrayList<City>();
         String cityString;
         cityString = sharedpreferences.getString("CURRENT CITY", "");
         cname = (EditText) findViewById(R.id.cityNameET);
@@ -108,6 +158,13 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
 //                City city = dataSnapshot.getValue(City.class);
   //              Log.d("NAME", city.name + "");
                 sizeOfDB = dataSnapshot.getChildrenCount();
+                Iterable<DataSnapshot> dbEntries = dataSnapshot.getChildren();
+                ArrayList<String> keys = new ArrayList<String>();
+
+                for (DataSnapshot child : dbEntries) {
+                    keys.add(child.getKey());
+                    Log.d("KEY", child.getKey());
+                }
                 Log.d("snap",sizeOfDB+"");
 //                Intent i = new Intent(getApplicationContext(),CityWeather.class);
 //                i.putExtra("CNAME",cname.getText().toString());
@@ -115,13 +172,16 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
 //                startActivity(i);
                 savedCities.clear();
                 mAdapter.notifyDataSetChanged();
-                for(int i = 0; i < 100; i++){
-                    if(dataSnapshot.child(i+"").exists()){
-                        Weather w = new Weather();
-                        w.setCountry(dataSnapshot.child(i+"").child("country").getValue(String.class));
-                        w.setCity(dataSnapshot.child(i+"").child("city").getValue(String.class));
-                        w.setTempF(dataSnapshot.child(i+"").child("tempF").getValue(String.class));
-                        w.setTime(dataSnapshot.child(i+"").child("time").getValue(String.class));
+                for(int i = 0; i < sizeOfDB; i++){
+                    Log.d("count", "one");
+                    if(dataSnapshot.child(keys.get(i)).exists()){
+                        City w = new City();
+                        w.setCountry(dataSnapshot.child(keys.get(i)).child("country").getValue(String.class));
+                        w.setName(dataSnapshot.child(keys.get(i)).child("name").getValue(String.class));
+                        w.setTempF(dataSnapshot.child(keys.get(i)).child("tempF").getValue(String.class));
+                        w.setUpdated(dataSnapshot.child(keys.get(i)).child("updated").getValue(Long.class));
+                        w.setKey(dataSnapshot.child(keys.get(i)).child("key").getValue(String.class));
+
                         savedCities.add(w);
                         //Log.d("exists",savedCities.get(0).getCity());
 
@@ -289,7 +349,7 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
             i.putExtra("CNAME",s.get(0).getName());
             i.putExtra("KEY", s.get(0).getKey());
             i.putExtra("DBSIZE",sizeOfDB);
-            myRef.child((sizeOfDB)+"").setValue(s.get(0));
+            //myRef.child((sizeOfDB)+"").setValue(s.get(0));
             startActivityForResult(i, 100);
 
         } else {
@@ -333,6 +393,7 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
     }
 
 
+
     //After GetCurretnWeatherAsync runs it comes back and loads up weather it retrieved
     public void currentWeather(final ArrayList<Weather> s) {
 
@@ -346,8 +407,8 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
             //for(int i = 0; i < 100; i++ ) {
             //Log.d("pp", myRef.child(i + "").child("country") + "");
             //if (myRef.child((sizeOfDB+1) + "") == null) {
-            s.get(0).setPositionInFirebase(sizeOfDB);
-            myRef.child((sizeOfDB) + "").setValue(s.get(0));
+            //s.get(0).setPositionInFirebase(sizeOfDB);
+            //myRef.child((sizeOfDB) + "").setValue(s.get(0));
             //}
             //}
 
@@ -384,7 +445,10 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
 
         cityCountryTV.setText(cityName + ", " + countryName);
         currentWeatherTV.setText(weather.getText());
-        updatedTV.setText(weather.getTime());
+
+        PrettyTime p = new PrettyTime();
+
+        updatedTV.setText(p.format(new Date(Long.parseLong(weather.getTime())*1000L)));
 
 
         String icon;
@@ -396,7 +460,7 @@ public class MainActivity extends AppCompatActivity implements GetCityAsync.IDat
         }
 
         Picasso.with(MainActivity.this).load("http://developer.accuweather.com/sites/default/files/"+icon+"-s.png").into(currentWeatherIV);
-        Picasso.with(MainActivity.this).load("http://developer.accuweather.com/sites/default/files/0"+weather.getIcon()+"-s.png").into(currentWeatherIV);
+        //Picasso.with(MainActivity.this).load("http://developer.accuweather.com/sites/default/files/0"+weather.getIcon()+"-s.png").into(currentWeatherIV);
 
 
         //TODO:  needs to be dynamic based on preference of metric user chooses in settings

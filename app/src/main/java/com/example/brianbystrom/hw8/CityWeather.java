@@ -1,6 +1,7 @@
 package com.example.brianbystrom.hw8;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
@@ -127,6 +128,15 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
                 editor.commit();
 
                 return true;
+            case R.id.settingsMI:
+                Intent i = new Intent(getApplicationContext(),Preferences.class);
+                //i.putExtra("CTRYNAME",s.get(0).getCountry());
+                //i.putExtra("CNAME",s.get(0).getName());
+                //i.putExtra("KEY", s.get(0).getKey());
+                //i.putExtra("DBSIZE",sizeOfDB);
+                //myRef.child((sizeOfDB)+"").setValue(s.get(0));
+                startActivityForResult(i, 200);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -161,7 +171,7 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
             c.setTempC(s.get(0).getTempC());
             c.setTempF(s.get(0).getTempF());
             c.setUpdated(System.currentTimeMillis());
-            myRef.child("city").child(key).setValue(c);
+            myRef.child("city").child(cityKey).setValue(c);
 
             //showCurrentWeather(s.get(0));
 
@@ -175,7 +185,7 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
     }
 
     public void writeToFirebase(ArrayList<FiveDay> s){
-        long sizeOfDB = getIntent().getExtras().getLong("DBSIZE");
+        /*long sizeOfDB = getIntent().getExtras().getLong("DBSIZE");
         Weather w = new Weather();
         w.setCity(getIntent().getExtras().getString("CNAME"));
         w.setCountry(getIntent().getExtras().getString("CTRYNAME"));
@@ -183,7 +193,7 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
         w.setTime(s.get(0).getDate());
         w.setTempF(s.get(0).getMax());
         w.setPositionInFirebase(sizeOfDB);
-        myRef.child(sizeOfDB+"").setValue(w);
+        myRef.child(sizeOfDB+"").setValue(w);*/
     }
 
     public void setupCurrentDay(ArrayList<FiveDay> s){
@@ -220,8 +230,10 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
         String day3Icon = "";
 
         if (s.size() > 0) {
-            writeToFirebase(s);
+            //writeToFirebase(s);
             setupCurrentDay(s);
+
+            Log.d("DATESET", s.get(0).getDate() + ", " + s.get(1).getDate());
 
             mRecyclerView = (RecyclerView) findViewById(R.id.fiveday_list);
             // use this setting to improve performance if you know that changes
@@ -231,7 +243,7 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
             // use a linear layout manager
             mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
             mRecyclerView.setLayoutManager(mLayoutManager);
-            Log.d("date of the second val",s.get(8).getDate());
+            //Log.d("date of the second val",s.get(8).getDate());
             mAdapter = new MyFiveDayAdapter(s,this);
             mRecyclerView.setAdapter(mAdapter);
             mAdapter.notifyDataSetChanged();
@@ -249,6 +261,13 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
 
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.d("RETURNED","BACK");
+        setResult(RESULT_OK);
+        finish();
     }
 
 

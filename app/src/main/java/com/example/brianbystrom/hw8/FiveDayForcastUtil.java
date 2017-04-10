@@ -29,18 +29,20 @@ public class FiveDayForcastUtil {
                 JSONObject root = new JSONObject(in);
 
 
-                for (int i = 0; i<root.length(); i++) {
+                //for (int i = 0; i<root.length(); i++) {
 
-                    FiveDay fiveDay = new FiveDay();
+
                    JSONObject headline = root.getJSONObject("Headline");
-                        fiveDay.setHeadline(headline.getString("Text"));
-                        fiveDay.setDay("Forcast for "+headline.getString("EffectiveDate"));
+
                     Log.d("test",headline.toString());
                    JSONArray dailyforcasts = root.getJSONArray("DailyForecasts");
 
                     Log.d("LENGTH", dailyforcasts.length() + "");
 
                     for (int x = 0; x < dailyforcasts.length(); x++){
+                        FiveDay fiveDay = new FiveDay();
+                        fiveDay.setHeadline(headline.getString("Text"));
+                        fiveDay.setDay("Forcast for "+headline.getString("EffectiveDate"));
                         JSONObject obj = dailyforcasts.getJSONObject(x);
                         fiveDay.setMin(obj.getJSONObject("Temperature").getJSONObject("Minimum").getDouble("Value")+"");
                         fiveDay.setMax(obj.getJSONObject("Temperature").getJSONObject("Maximum").getDouble("Value")+"");
@@ -49,17 +51,19 @@ public class FiveDayForcastUtil {
                         fiveDay.setIconDay(obj.getJSONObject("Day").getInt("Icon"));
                         fiveDay.setIconNight(obj.getJSONObject("Night").getInt("Icon"));
 
-                        Long date = (Long.parseLong(obj.getString("EpochDate"))*1000);
+                        Long date = (Long.parseLong(obj.getString("EpochDate"))*1000L);
+                        Log.d("DATE", date + "");
 
                         java.util.Date d = new java.util.Date(date);
-                        String itemDateStr = new SimpleDateFormat("dd MMM yy").format(d);
+                        String itemDateStr = new SimpleDateFormat("d MMM yy").format(d);
+                        Log.d("DATE", itemDateStr);
                         fiveDay.setDate(itemDateStr);
 
                         Log.d("best",fiveDay.getIconDay()+"");
 
                         fiveDayForcastsList.add(fiveDay);
 
-                    }
+                   // }
 
 
 
@@ -73,7 +77,7 @@ public class FiveDayForcastUtil {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
+            Log.d("DAATESESRSE", fiveDayForcastsList.get(0).getDate() + ", " + fiveDayForcastsList.get(1).getDate());
             return fiveDayForcastsList;
         }
     }

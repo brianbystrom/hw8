@@ -18,10 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CityWeather">
-        </activity>
-        <activity android:name=".Preferences">
-        </activity>
+        <activity android:name=".CityWeather" />
+        <activity android:name=".Preferences" />
+
     </application>
 
 </manifest>
