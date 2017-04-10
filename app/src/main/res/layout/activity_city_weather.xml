@@ -7,207 +7,224 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="TextView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_headline"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_height="match_parent"
+        android:id="@+id/RL"
+        android:visibility="gone">
 
-    <TextView
-        android:text="Forcast Tomrrow"
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_headline"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Forcast Tomrrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_headline"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/Forcast"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Forcast"
+            android:layout_alignRight="@+id/Forcast"
+            android:layout_alignEnd="@+id/Forcast"
+            android:id="@+id/tv_temp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Night"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/night"
+            android:layout_above="@+id/dayIV"
+            android:layout_alignLeft="@+id/nightIV"
+            android:layout_alignStart="@+id/nightIV" />
+
+        <TextView
+            android:text="Condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginTop="31dp"
+            android:id="@+id/textView8"
+            android:layout_below="@+id/tv_temp"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/dayIV"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/day"
+            android:layout_toLeftOf="@+id/textView8"
+            android:layout_toStartOf="@+id/textView8" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_day"
+            android:layout_below="@+id/dayIV"
+            android:layout_alignLeft="@+id/day"
+            android:layout_alignStart="@+id/day"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_night"
+            android:layout_below="@+id/nightIV"
+            android:layout_toRightOf="@+id/moreDetailsTV"
+            android:layout_toEndOf="@+id/moreDetailsTV" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day1IV"
+            android:layout_alignLeft="@+id/day1IV"
+            android:layout_alignStart="@+id/day1IV"
+            android:id="@+id/day1TV"
+            android:visibility="gone" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/day2IV"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/day2TV"
+            android:visibility="gone" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/day2TV"
+            android:layout_alignRight="@+id/day3IV"
+            android:layout_alignEnd="@+id/day3IV"
+            android:id="@+id/day3TV"
+            android:visibility="gone" />
+
+        <ImageView
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/day3IV"
+            android:layout_above="@+id/day3TV"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:layout_width="100dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/nightIV"
+            android:layout_height="100dp"
+            android:layout_below="@+id/night"
+            android:layout_toRightOf="@+id/textView8"
+            android:layout_toEndOf="@+id/textView8" />
+
+        <TextView
+            android:text="Day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/day"
+            android:layout_below="@+id/textView8"
+            android:layout_toRightOf="@+id/day1TV"
+            android:layout_toEndOf="@+id/day1TV" />
+
+        <ImageView
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/day1IV"
+            android:layout_marginTop="12dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/moreDetailsTV"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:text="Headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:layout_marginTop="59dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/cityWeatherHeaderTV" />
+
+        <ImageView
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/day2IV"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignTop="@+id/day1IV"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:text="Click here for more details."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/moreDetailsTV"
+            android:layout_marginTop="17dp"
+            android:layout_below="@+id/tv_night"
+            android:layout_centerHorizontal="true" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            android:id="@+id/fiveday_list"
+            android:layout_below="@+id/moreDetailsTV"
+            android:layout_toRightOf="@+id/day1TV"
+            android:layout_toEndOf="@+id/day1TV" />
+
+        <TextView
+            android:text="Click here for extended details."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/moreDetailsTV2"
+            android:layout_marginTop="17dp"
+            android:layout_below="@+id/fiveday_list"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_headline"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/Forcast"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Forcast"
-        android:layout_alignRight="@+id/Forcast"
-        android:layout_alignEnd="@+id/Forcast"
-        android:id="@+id/tv_temp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="Night"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/night"
-        android:layout_above="@+id/dayIV"
-        android:layout_alignLeft="@+id/nightIV"
-        android:layout_alignStart="@+id/nightIV" />
-
-    <TextView
-        android:text="Condition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_marginTop="31dp"
-        android:id="@+id/textView8"
-        android:layout_below="@+id/tv_temp"
-        android:layout_centerHorizontal="true" />
-
-    <ImageView
-        app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/dayIV"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@+id/day"
-        android:layout_toLeftOf="@+id/textView8"
-        android:layout_toStartOf="@+id/textView8" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_day"
-        android:layout_below="@+id/dayIV"
-        android:layout_alignLeft="@+id/day"
-        android:layout_alignStart="@+id/day"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_night"
-        android:layout_below="@+id/nightIV"
-        android:layout_toRightOf="@+id/moreDetailsTV"
-        android:layout_toEndOf="@+id/moreDetailsTV" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/day1IV"
-        android:layout_alignLeft="@+id/day1IV"
-        android:layout_alignStart="@+id/day1IV"
-        android:id="@+id/day1TV"
-        android:visibility="gone" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/day2IV"
+        android:layout_below="@+id/RL"
         android:layout_centerHorizontal="true"
-        android:id="@+id/day2TV"
-        android:visibility="gone" />
+        android:layout_marginTop="197dp"
+        android:id="@+id/PB" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/day2TV"
-        android:layout_alignRight="@+id/day3IV"
-        android:layout_alignEnd="@+id/day3IV"
-        android:id="@+id/day3TV"
-        android:visibility="gone" />
-
-    <ImageView
-        app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/day3IV"
-        android:layout_above="@+id/day3TV"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:visibility="gone" />
-
-    <ImageView
-        android:layout_width="100dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/nightIV"
-        android:layout_height="100dp"
-        android:layout_below="@+id/night"
-        android:layout_toRightOf="@+id/textView8"
-        android:layout_toEndOf="@+id/textView8" />
-
-    <TextView
-        android:text="Day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/day"
-        android:layout_below="@+id/textView8"
-        android:layout_toRightOf="@+id/day1TV"
-        android:layout_toEndOf="@+id/day1TV" />
-
-    <ImageView
-        app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/day1IV"
-        android:layout_marginTop="12dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@+id/moreDetailsTV"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:visibility="gone" />
-
-    <TextView
-        android:text="Headline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:layout_marginTop="59dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/cityWeatherHeaderTV" />
-
-    <ImageView
-        app:srcCompat="@mipmap/ic_launcher"
-        android:id="@+id/day2IV"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignTop="@+id/day1IV"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone" />
-
-    <TextView
-        android:text="Click here for more details."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/moreDetailsTV"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/tv_night"
-        android:layout_centerHorizontal="true" />
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal"
-        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-        android:id="@+id/fiveday_list"
-        android:layout_below="@+id/moreDetailsTV"
-        android:layout_toRightOf="@+id/day1TV"
-        android:layout_toEndOf="@+id/day1TV" />
-
-    <TextView
-        android:text="Click here for extended details."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/moreDetailsTV2"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/fiveday_list"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -1,6 +1,8 @@
 package com.example.brianbystrom.hw8;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -61,7 +63,7 @@ public class MyFiveDayAdapter extends RecyclerView.Adapter<MyFiveDayAdapter.View
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MyFiveDayAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(MyFiveDayAdapter.ViewHolder holder, final int position) {
         //holder.iv_five.setImageResource();
         String icon;
         if(mDataset.get(position).getIconDay() < 10) {
@@ -72,7 +74,54 @@ public class MyFiveDayAdapter extends RecyclerView.Adapter<MyFiveDayAdapter.View
 
         Picasso.with(mContext).load("http://developer.accuweather.com/sites/default/files/"+icon+"-s.png").into(holder.iv_five);
 
+        holder.iv_five.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Creates alert dialog for set city with 2 ET and adds to LinearLayout
+                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+                builder.setTitle("Weather details for: " + mDataset.get(position).getDate());
 
+                AlertDialog dialog = builder.create();
+
+                TextView dateTV = new TextView(mContext);
+                TextView minTV = new TextView(mContext);
+                TextView maxTV = new TextView(mContext);
+                TextView cityTV = new TextView(mContext);
+
+                minTV.setText("Min Temp: " + mDataset.get(position).getMin() + " F");
+                maxTV.setText("Max Temp: " + mDataset.get(position).getMax() + " F");
+                cityTV.setText("City: " + mDataset.get(position).getCity() + ", " + mDataset.get(position).getCountry());
+
+
+
+
+
+                //setCityET.setHint("Enter your city");
+                //setCountryET.setHint("Set your country");
+
+                LinearLayout ll = new LinearLayout(mContext);
+                ll.setOrientation(LinearLayout.VERTICAL);
+                ll.removeAllViews();
+                ll.addView(cityTV);
+                ll.addView(maxTV);
+                ll.addView(minTV);
+                builder.setView(ll);
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //setCity.setValue(setCityET.getText().toString());
+                        //setCountry.setValue(setCountryET.getText().toString());
+
+                    }
+                });
+
+
+
+                dialog = builder.create();
+                dialog.show();
+
+            }
+        });
         //Picasso.with(mContext).load("http://developer.accuweather.com/sites/default/files/"+position+"-s.png").into(holder.iv_five);
        // Log.d("dates",(mDataset.get(8).getDate()));
 

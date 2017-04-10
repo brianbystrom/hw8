@@ -12,9 +12,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +48,8 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
     TextView cityWeatherHeaderTV;
     String cityKey, cityName, countryName;
     String tempF, tempC;
+    RelativeLayout RL;
+    ProgressBar PB;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -70,6 +75,9 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
         tvNightWeather = (TextView) findViewById(R.id.tv_night);
         dayIV = (ImageView) findViewById(R.id.dayIV);
         nightIV = (ImageView) findViewById(R.id.nightIV);
+
+        RL = (RelativeLayout) findViewById(R.id.RL);
+        PB = (ProgressBar) findViewById(R.id.PB);
 
         day1IV = (ImageView) findViewById(R.id.day1IV);
         day2IV = (ImageView) findViewById(R.id.day2IV);
@@ -259,6 +267,8 @@ public class CityWeather extends AppCompatActivity implements GetLocationAsync.I
 //            Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+day2Icon+"-s.png").into(day2IV);
 //            Picasso.with(CityWeather.this).load("http://developer.accuweather.com/sites/default/files/"+day3Icon+"-s.png").into(day3IV);
 
+            PB.setVisibility(View.GONE);
+            RL.setVisibility(View.VISIBLE);
 
         }
     }
